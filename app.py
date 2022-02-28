@@ -178,7 +178,7 @@ def main():
         ChronicCond_rheumatoidarthritis = st.number_input("Chronic Condition rheumatoidarthritis", min_value=1,
                                                           max_value=2)
         ChronicCond_stroke = st.number_input("Chronic Condition stroke", min_value=1, max_value=2)
-        ClmProcedureCode_4 = st.number_input("Claim Procedure Code 4", help='3848 - 9999')
+        ClmProcedureCode_4 = st.number_input("Claim Procedure Code 4", min_value=3848, max_value=9999, help='3848 - 9999')
 
     with col2:
         ClaimID = st.text_input("Claim Id", help='Eg CLM34146, CLM162739', max_chars=9)
@@ -206,11 +206,11 @@ def main():
         ClmDiagnosisCode_8 = st.text_input("Claim Diagnosis Code 8", "")
         ClmDiagnosisCode_9 = st.text_input("Claim Diagnosis Code 9", "")
         ClmDiagnosisCode_10 = st.text_input("Claim Diagnosis Code 10", "")
-        ClmProcedureCode_1 = st.number_input("Claim Procedure Code 1", help='3848 - 9999')
-        ClmProcedureCode_2 = st.number_input("Claim Procedure Code 2", help='3848 - 9999')
-        ClmProcedureCode_3 = st.number_input("Claim Procedure Code 3", help='3848 - 9999')
-        ClmProcedureCode_5 = st.number_input("Claim Procedure Code 5", help='3848 - 9999')
-        ClmProcedureCode_6 = st.number_input("Claim Procedure Code 6", help='3848 - 9999')
+        ClmProcedureCode_1 = st.number_input("Claim Procedure Code 1",min_value=3848, max_value=9999, help='3848 - 9999')
+        ClmProcedureCode_2 = st.number_input("Claim Procedure Code 2", min_value=3848, max_value=9999,help='3848 - 9999')
+        ClmProcedureCode_3 = st.number_input("Claim Procedure Code 3", min_value=3848, max_value=9999,help='3848 - 9999')
+        ClmProcedureCode_5 = st.number_input("Claim Procedure Code 5", min_value=3848, max_value=9999,help='3848 - 9999')
+        ClmProcedureCode_6 = st.number_input("Claim Procedure Code 6", min_value=3848, max_value=9999,help='3848 - 9999')
 
 
     FinalData_Merge = pd.DataFrame({"BeneID": BeneID, "ClaimID": ClaimID, "ClaimStartDt": ClaimStartDt,
