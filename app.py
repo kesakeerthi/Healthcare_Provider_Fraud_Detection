@@ -5,15 +5,15 @@ import pickle
 
 
 # Loading Standard Scaler model to scale the data
-scaler = pickle.load(open('standard_scaler.pkl', 'rb'))
+scaler = pickle.load(open('C:/Users/Keerthi/Desktop/Healthcare-Fraud-Detection/pickles/standard_scaler.pkl', 'rb'))
 
 # Loading Random Forest which is trained and tuned with Dataset
-model = pickle.load(open('xg_boost.pkl', 'rb'))
+model = pickle.load(open('C:/Users/Keerthi/Desktop/Healthcare-Fraud-Detection/pickles/xg_boost.pkl', 'rb'))
 
 # Loading Encoding Dicts used while training for State, County, Race
-County_Encoded = pickle.load(open('County_Encoded.pkl', 'rb'))
-State_Encoded = pickle.load(open('State_Encoded.pkl', 'rb'))
-Race_Encoded = pickle.load(open('Race_Encoded.pkl', 'rb'))
+County_Encoded = pickle.load(open('C:/Users/Keerthi/Desktop/Healthcare-Fraud-Detection/pickles/County_Encoded.pkl', 'rb'))
+State_Encoded = pickle.load(open('C:/Users/Keerthi/Desktop/Healthcare-Fraud-Detection/pickles/State_Encoded.pkl', 'rb'))
+Race_Encoded = pickle.load(open('C:/Users/Keerthi/Desktop/Healthcare-Fraud-Detection/pickles/Race_Encoded.pkl', 'rb'))
 
 def func(InpatientClaim, ClaimDays, AdmittedDays):
     CD_Not_AD = 0
@@ -54,9 +54,8 @@ def preprocess(FinalData_Merge):
     FinalData_Merge['RenalDiseaseIndicator'].replace(['Y', '0'], [1, 0], inplace=True)
 
     ChronicConditions = ['ChronicCond_Alzheimer', 'ChronicCond_Heartfailure', 'ChronicCond_KidneyDisease',
-                         'ChronicCond_Cancer',
+                         'ChronicCond_Cancer','ChronicCond_IschemicHeart','ChronicCond_stroke',
                          'ChronicCond_ObstrPulmonary', 'ChronicCond_Depression', 'ChronicCond_Diabetes',
-                         'ChronicCond_IschemicHeart',
                          'ChronicCond_Osteoporasis', 'ChronicCond_rheumatoidarthritis']
     for col in ChronicConditions:
         FinalData_Merge[col].replace([1, 2], [0, 1], inplace=True)
@@ -207,11 +206,11 @@ def main():
         ClmDiagnosisCode_8 = st.text_input("Claim Diagnosis Code 8", "")
         ClmDiagnosisCode_9 = st.text_input("Claim Diagnosis Code 9", "")
         ClmDiagnosisCode_10 = st.text_input("Claim Diagnosis Code 10", "")
-        ClmProcedureCode_1 = st.number_input("Claim Procedure Code 1", min_value=3848, max_value=9999)
-        ClmProcedureCode_2 = st.number_input("Claim Procedure Code 2", min_value=3848, max_value=9999)
-        ClmProcedureCode_3 = st.number_input("Claim Procedure Code 3", min_value=3848, max_value=9999)
-        ClmProcedureCode_5 = st.number_input("Claim Procedure Code 5", min_value=3848, max_value=9999)
-        ClmProcedureCode_6 = st.number_input("Claim Procedure Code 6", min_value=3848, max_value=9999)
+        ClmProcedureCode_1 = st.number_input("Claim Procedure Code 1", help='3848 - 9999')
+        ClmProcedureCode_2 = st.number_input("Claim Procedure Code 2", help='3848 - 9999')
+        ClmProcedureCode_3 = st.number_input("Claim Procedure Code 3", help='3848 - 9999')
+        ClmProcedureCode_5 = st.number_input("Claim Procedure Code 5", help='3848 - 9999')
+        ClmProcedureCode_6 = st.number_input("Claim Procedure Code 6", help='3848 - 9999')
 
 
     FinalData_Merge = pd.DataFrame({"BeneID": BeneID, "ClaimID": ClaimID, "ClaimStartDt": ClaimStartDt,
