@@ -5,15 +5,15 @@ import pickle
 
 
 # Loading Standard Scaler model to scale the data
-scaler = pickle.load(open('C:/Users/Keerthi/Desktop/Healthcare-Fraud-Detection/pickles/standard_scaler.pkl', 'rb'))
+scaler = pickle.load(open('standard_scaler.pkl', 'rb'))
 
 # Loading Random Forest which is trained and tuned with Dataset
-model = pickle.load(open('C:/Users/Keerthi/Desktop/Healthcare-Fraud-Detection/pickles/xg_boost.pkl', 'rb'))
+model = pickle.load(open('xg_boost.pkl', 'rb'))
 
 # Loading Encoding Dicts used while training for State, County, Race
-County_Encoded = pickle.load(open('C:/Users/Keerthi/Desktop/Healthcare-Fraud-Detection/pickles/County_Encoded.pkl', 'rb'))
-State_Encoded = pickle.load(open('C:/Users/Keerthi/Desktop/Healthcare-Fraud-Detection/pickles/State_Encoded.pkl', 'rb'))
-Race_Encoded = pickle.load(open('C:/Users/Keerthi/Desktop/Healthcare-Fraud-Detection/pickles/Race_Encoded.pkl', 'rb'))
+County_Encoded = pickle.load(open('County_Encoded.pkl', 'rb'))
+State_Encoded = pickle.load(open('State_Encoded.pkl', 'rb'))
+Race_Encoded = pickle.load(open('Race_Encoded.pkl', 'rb'))
 
 def func(InpatientClaim, ClaimDays, AdmittedDays):
     CD_Not_AD = 0
@@ -178,7 +178,7 @@ def main():
         ChronicCond_rheumatoidarthritis = st.number_input("Chronic Condition rheumatoidarthritis", min_value=1,
                                                           max_value=2)
         ChronicCond_stroke = st.number_input("Chronic Condition stroke", min_value=1, max_value=2)
-        ClmProcedureCode_4 = st.number_input("Claim Procedure Code 4", min_value=3848, max_value=9999)
+        ClmProcedureCode_4 = st.number_input("Claim Procedure Code 4", help='3848 - 9999')
 
     with col2:
         ClaimID = st.text_input("Claim Id", help='Eg CLM34146, CLM162739', max_chars=9)
