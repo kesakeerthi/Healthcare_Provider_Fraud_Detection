@@ -5,15 +5,15 @@ import pickle
 
 
 # Loading Standard Scaler model to scale the data
-scaler = pickle.load(open('C:/Users/Keerthi/Desktop/Healthcare-Fraud-Detection/pickles/standard_scaler.pkl', 'rb'))
+scaler = pickle.load(open('standard_scaler.pkl', 'rb'))
 
 # Loading Random Forest which is trained and tuned with Dataset
-model = pickle.load(open('C:/Users/Keerthi/Desktop/Healthcare-Fraud-Detection/pickles/xg_boost.pkl', 'rb'))
+model = pickle.load(open('xg_boost.pkl', 'rb'))
 
 # Loading Encoding Dicts used while training for State, County, Race
-County_Encoded = pickle.load(open('C:/Users/Keerthi/Desktop/Healthcare-Fraud-Detection/pickles/County_Encoded.pkl', 'rb'))
-State_Encoded = pickle.load(open('C:/Users/Keerthi/Desktop/Healthcare-Fraud-Detection/pickles/State_Encoded.pkl', 'rb'))
-Race_Encoded = pickle.load(open('C:/Users/Keerthi/Desktop/Healthcare-Fraud-Detection/pickles/Race_Encoded.pkl', 'rb'))
+County_Encoded = pickle.load(open('County_Encoded.pkl', 'rb'))
+State_Encoded = pickle.load(open('State_Encoded.pkl', 'rb'))
+Race_Encoded = pickle.load(open('Race_Encoded.pkl', 'rb'))
 
 def func(InpatientClaim, ClaimDays, AdmittedDays):
     CD_Not_AD = 0
