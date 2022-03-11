@@ -52,6 +52,7 @@ def preprocess(FinalData_Merge):
     FinalData_Merge['Gender'].replace([2, 1], [1, 0], inplace=True)
 
     FinalData_Merge['RenalDiseaseIndicator'].replace(['Y', '0'], [1, 0], inplace=True)
+    FinalData_Merge['RenalDiseaseIndicator'] = pd.to_numeric(FinalData_Merge['RenalDiseaseIndicator'])
 
     ChronicConditions = ['ChronicCond_Alzheimer', 'ChronicCond_Heartfailure', 'ChronicCond_KidneyDisease',
                          'ChronicCond_Cancer','ChronicCond_IschemicHeart','ChronicCond_stroke',
@@ -124,8 +125,8 @@ def preprocess(FinalData_Merge):
        'IPAnnualReimbursementAmt', 'IPAnnualDeductibleAmt',
        'OPAnnualReimbursementAmt', 'OPAnnualDeductibleAmt', 'isDead',
        'AdmittedDays', 'Age', 'ClaimDays', 'isCD_not_AD', 'ICD_Codes',
-       'CPT_Codes', 'PhysiciansCount', 'Race_Encoded', 'State_Encoded',
-       'County_Encoded']
+       'CPT_Codes', 'PhysiciansCount', 'State_Encoded', 'County_Encoded',
+       'Race_Encoded']
 
     FinalData_Merge = FinalData_Merge[ExpectedColOrder]
 
