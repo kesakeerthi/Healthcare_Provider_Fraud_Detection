@@ -154,9 +154,9 @@ def main():
     with col1:
         Provider = st.text_input("Provider Id", help='Eg PRV12345', max_chars=8)
         BeneID = st.text_input("Patient/Beneficiary Id", help='Eg BENE12345', max_chars=9)
-        Race = st.number_input("Race", min_value=1, max_value=5)
+        Race = st.number_input("Race", help='1-5',min_value=1, max_value=5)
         State = st.number_input("State", help='1-54',min_value=1, max_value=54)
-        County = st.number_input("County", min_value=0, max_value=999)
+        County = st.number_input("County", help='0-999', min_value=0, max_value=999)
         DOB = st.text_input("Date of Birth", help='Eg 2009-04-12')
         DOD = st.text_input("Date of Death", help='Eg 2009-04-12')
         Gender = st.number_input("Gender", min_value=1, max_value=2)
@@ -179,7 +179,7 @@ def main():
         ChronicCond_rheumatoidarthritis = st.number_input("Chronic Condition rheumatoidarthritis", min_value=1,
                                                           max_value=2)
         ChronicCond_stroke = st.number_input("Chronic Condition stroke", min_value=1, max_value=2)
-        ClmProcedureCode_4 = st.number_input("Claim Procedure Code 4", min_value=3848, max_value=9999, help='3848 - 9999')
+        ClmProcedureCode_4 = st.text_input("Claim Procedure Code 4", help='3848 - 9999')
 
     with col2:
         ClaimID = st.text_input("Claim Id", help='Eg CLM34146, CLM162739', max_chars=9)
@@ -207,11 +207,11 @@ def main():
         ClmDiagnosisCode_8 = st.text_input("Claim Diagnosis Code 8", "")
         ClmDiagnosisCode_9 = st.text_input("Claim Diagnosis Code 9", "")
         ClmDiagnosisCode_10 = st.text_input("Claim Diagnosis Code 10", "")
-        ClmProcedureCode_1 = st.number_input("Claim Procedure Code 1",min_value=3848, max_value=9999, help='3848 - 9999')
-        ClmProcedureCode_2 = st.number_input("Claim Procedure Code 2", min_value=3848, max_value=9999,help='3848 - 9999')
-        ClmProcedureCode_3 = st.number_input("Claim Procedure Code 3", min_value=3848, max_value=9999,help='3848 - 9999')
-        ClmProcedureCode_5 = st.number_input("Claim Procedure Code 5", min_value=3848, max_value=9999,help='3848 - 9999')
-        ClmProcedureCode_6 = st.number_input("Claim Procedure Code 6", min_value=3848, max_value=9999,help='3848 - 9999')
+        ClmProcedureCode_1 = st.text_input("Claim Procedure Code 1", help='3848 - 9999')
+        ClmProcedureCode_2 = st.text_input("Claim Procedure Code 2", help='3848 - 9999')
+        ClmProcedureCode_3 = st.text_input("Claim Procedure Code 3", help='3848 - 9999')
+        ClmProcedureCode_5 = st.text_input("Claim Procedure Code 5", help='3848 - 9999')
+        ClmProcedureCode_6 = st.text_input("Claim Procedure Code 6", help='3848 - 9999')
 
 
     FinalData_Merge = pd.DataFrame({"BeneID": BeneID, "ClaimID": ClaimID, "ClaimStartDt": ClaimStartDt,
@@ -251,17 +251,18 @@ def main():
                                     "OPAnnualDeductibleAmt": OPAnnualDeductibleAmt,
                                     "ChronicCond_rheumatoidarthritis": ChronicCond_rheumatoidarthritis},index=[0])
 
+
     FinalData_Merge['Race_Encoded'] = Race_Encoded.get(Race)
     FinalData_Merge['State_Encoded'] = State_Encoded.get(State)
     FinalData_Merge['County_Encoded'] = County_Encoded.get(County)
 
-
     X = preprocess(FinalData_Merge)
+
     input_array = np.array(X).reshape(1, -1)
     
     res, prob = "", ""
     if st.button("Predict"):
-        y_pred, y_prob =predict_fraud(input_array)
+        y_pred, y_prob = predict_fraud(input_array)
         if y_pred == 1:
             res = 'Fraud'
             prob = round(y_prob[:, 1][0]*100,2)
