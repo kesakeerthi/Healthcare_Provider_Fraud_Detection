@@ -4,8 +4,8 @@ Predict Fraudulent Health Care Providers
 ### Application Demo using Streamlit. 
 
 ### Using
-####  1. Python App
-####  2. Streamlit
+  1. Python App
+  2. Streamlit
 
 
 ### Single Entity Prediction
