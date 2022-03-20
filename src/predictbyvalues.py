@@ -5,15 +5,15 @@ import pickle
 from src.preprocess import preprocess
 
 # Loading XG Boost which is trained and tuned with Dataset
-model = pickle.load(open('D:/ML_Projects/Healthcare_Provider_Fraud_Detection/pickles/xg_boost.pkl','rb'))
+model = pickle.load(open('pickles/xg_boost.pkl','rb'))
 
 # Loading Standard Scaler model to scale the data
-scaler = pickle.load(open('D:/ML_Projects/Healthcare_Provider_Fraud_Detection/pickles/standard_scaler.pkl','rb'))
+scaler = pickle.load(open('pickles/standard_scaler.pkl','rb'))
 
 # Loading Encoding Dicts used while training for State, County, Race
-County_Encoded = pickle.load(open('D:/ML_Projects/Healthcare_Provider_Fraud_Detection/pickles/County_Encoded.pkl','rb'))
-State_Encoded = pickle.load(open('D:/ML_Projects/Healthcare_Provider_Fraud_Detection/pickles/State_Encoded.pkl','rb'))
-Race_Encoded = pickle.load(open('D:/ML_Projects/Healthcare_Provider_Fraud_Detection/pickles/Race_Encoded.pkl','rb'))
+County_Encoded = pickle.load(open('pickles/County_Encoded.pkl','rb'))
+State_Encoded = pickle.load(open('pickles/State_Encoded.pkl','rb'))
+Race_Encoded = pickle.load(open('pickles/Race_Encoded.pkl','rb'))
 
 def predict_fraud(X):
     '''This function takes details about a healthcare provider as input and returns a prediction of the healthcare provider
