@@ -6,7 +6,10 @@ Predict Fraudulent Health Care Providers
 ### Using
   1. Python 
   2. Streamlit
+  3. Heroku Cloud
 
+
+https://fraud-provider-predictor.herokuapp.com/
 
 ### Single Entity Prediction
 <img src="IMG/IMG-1.jpg" alt="My cool logo"/>
