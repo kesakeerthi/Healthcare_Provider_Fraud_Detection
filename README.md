@@ -1,7 +1,7 @@
 # Healthcare_Provider_Fraud_Detection
 Predict Fraudulent Health Care Providers
 
-### Application Demo using Streamlit. 
+### Application Demo 
 
 ### Using
   1. Python 
