@@ -9,7 +9,7 @@ Predict Fraudulent Health Care Providers
   3. Heroku Cloud
 
 
-https://fraud-provider-predictor.herokuapp.com/
+### Link to access application demo: https://fraud-provider-predictor.herokuapp.com/
 
 ### Single Entity Prediction
 <img src="IMG/IMG-1.jpg" alt="My cool logo"/>
@@ -17,4 +17,4 @@ https://fraud-provider-predictor.herokuapp.com/
 
 ### Bulk records(Inputs in CSV) Prediction 
 <img src="IMG/IMG-2.jpg" alt="My cool logo"/>
-(Please use reference file - df_test.csv for the order/format of column values need to be predicted in Bulk)
+(Please use reference file - **df_test.csv** for the order/format of column values need to be predicted in Bulk)
