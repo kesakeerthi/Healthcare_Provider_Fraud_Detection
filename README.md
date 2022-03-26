@@ -17,4 +17,5 @@ Predict Fraudulent Health Care Providers
 
 ### Bulk records(Inputs in CSV) Prediction 
 <img src="IMG/IMG-2.jpg" alt="My cool logo"/>
+
 (Please use reference file - **df_test.csv** for the order/format of column values need to be predicted in Bulk)
